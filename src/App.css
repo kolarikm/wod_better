@@ -1,0 +1,16 @@
+.note {
+    margin-top: 10px;
+    width: 50%;
+}
+
+.removeBtn {
+    padding-left: 10px;
+}
+
+.enabled {
+    background-color: lightgreen;
+}
+
+.disabled {
+    background-color: lightcoral;
+}
