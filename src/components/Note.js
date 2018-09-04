@@ -17,13 +17,13 @@ class Note extends Component {
     }
 
     render() {
-        let style = this.state.active ? 'enabled' : 'disabled';
+        let status = this.state.active ? 'enabled' : 'disabled';
+        let style = `note ${status}`;
+        
         return (
-            <div className="note">
-                <div className={style} onClick={this.click}>
-                    {this.props.text}
-                    <span className="removeBtn" onClick={this.props.delete}>x</span>
-                </div>
+            <div className={style} onClick={this.click}>
+                {this.props.text}
+                <span className="removeBtn" onClick={this.props.delete}>x</span>
             </div>
         ); 
     }

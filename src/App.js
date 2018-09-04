@@ -54,18 +54,16 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="header">
-                    Better WOD!
+                    <h1>Better WOD</h1>
                 </div>
                 <div>{notes}</div>
-                <div className="addBtn" onClick={this.addNote}>+</div>
                 <input type="text"
-                       className="noteInput"
+                       className="form-control text-input"
                        value={this.state.text}
                        onChange={text => this.updateText(text)}
                        onKeyPress={this.handleKeyPress}
-                >
-                
-                </input>
+                />
+                <div><button type="button" className="btn btn-primary" onClick={this.addNote}>+</button></div>
             </div>
         )
     }
