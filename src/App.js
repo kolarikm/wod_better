@@ -14,6 +14,17 @@ class App extends Component {
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.addNote = this.addNote.bind(this);
         this.removeNote = this.removeNote.bind(this);
+        this.getNotes = this.getNotes.bind(this);
+    }
+
+    componentWillMount() {
+        this.getNotes();
+    }
+
+    getNotes() {
+        let notes = localStorage.getItem("noteStore").split(",");
+        if (notes[0] === "") {return}
+        this.setState({ noteList: notes });
     }
 
     updateText(text) {
@@ -27,12 +38,11 @@ class App extends Component {
     }
 
     addNote() {
-        console.log("hell");
-        // Don't add empty notes
         if (this.state.text !== '') {
             let notes = this.state.noteList;
             notes.push(this.state.text);
             this.setState({ text: '' });
+            localStorage.setItem("noteStore", notes);
         }
     }
 
@@ -40,10 +50,10 @@ class App extends Component {
         let notes = this.state.noteList;
         notes.splice(id, 1);
         this.setState({ noteList: notes });
+        localStorage.setItem("noteStore", notes);
     }
 
     render() {
-
         let notes = this.state.noteList.map((val, key) => {
             return <Note key={key}
                          text={val}
