@@ -17,7 +17,10 @@ class App extends Component {
                     <Navigation />
                     <hr />
 
+                    <Route exact path='/signin' component={SignInPage} />
                     <Route exact path='/' component={LandingPage} />
+                    <Route exact path='/home' component={HomePage} />
+                    <Route exact path='/account' component={AccountPage} />
                 </div>
             </BrowserRouter> 
         )
